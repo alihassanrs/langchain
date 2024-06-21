@@ -73,7 +73,7 @@ st.sidebar.caption('Streamlit web application that integrates with LangChain and
 st.sidebar.subheader('Follow Me')
 st.sidebar.link_button("Connect LinkedIn",'https://www.linkedin.com/in/alihassanml')
 st.sidebar.link_button("Connect On Github",'https://github.com/alihassanml',type="secondary")
-
+st.sidebar.caption('Develop by: Ali Hassan')
 
 if pages == 'Image Processing Model':
     main()
