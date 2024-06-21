@@ -26,7 +26,10 @@ def Image_Processing(text, image_path):
 
 def main():
 
-    st.title('LangChain Google Generative AI')
+   
+
+
+    st.title('LangChain Image Processing Model')
     user_input = st.text_input('Enter Text')
     image = st.file_uploader('Upload File', type=['jpg', 'png', 'jpeg'])
     submit = st.button('Ask Question')
@@ -48,5 +51,32 @@ def main():
         os.remove(image_path)
 
 
-if __name__ == '__main__':
+def Chat():
+    st.title('LangChain Chat Model')
+    user_input = st.text_input('Enter Text')
+    submit = st.button('Ask Question')
+    if submit:
+        llm = ChatGoogleGenerativeAI(model='gemini-pro', api_key=os.getenv('GOOGLE_API_KEY'))
+        response = llm.invoke(user_input)
+        st.subheader('Response')
+        st.write(response.content)
+
+
+
+st.sidebar.title('Chose Langchain Model')
+pages = st.sidebar.selectbox(
+   
+    "Chose Langchain Model",
+    ("Chat Model", "Image Processing Model")
+    )
+st.sidebar.caption('Streamlit web application that integrates with LangChain and Google Generative AI for processing text alongside images')
+st.sidebar.subheader('Follow Me')
+st.sidebar.link_button("Connect LinkedIn",'https://www.linkedin.com/in/alihassanml')
+st.sidebar.link_button("Connect On Github",'https://github.com/alihassanml',type="secondary")
+
+
+if pages == 'Image Processing Model':
     main()
+
+if pages == 'Chat Model':
+    Chat()
