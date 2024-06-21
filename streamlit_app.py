@@ -67,7 +67,7 @@ st.sidebar.title('Chose Langchain Model')
 pages = st.sidebar.selectbox(
    
     "Chose Langchain Model",
-    ("Chat Model", "Image Processing Model")
+    ("Image Processing Model","Chat Model")
     )
 st.sidebar.caption('Streamlit web application that integrates with LangChain and Google Generative AI for processing text alongside images')
 st.sidebar.subheader('Follow Me')
